@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-
+from schemas import BookSchema
 #initialize it
 app= FastAPI()
 
@@ -19,7 +19,8 @@ def books():
 
 #create/add a book
 @app.post('/books')
-def create():
+def create(book: BookSchema):
+    print(book)
     return {"message":"Book added succesfully"}
 
 #update a book
