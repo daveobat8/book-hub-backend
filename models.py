@@ -10,9 +10,9 @@ class Books(Base):
 
     #define columns
     id= Column(Integer(), primary_key=True)
-    title= Column(Text())
-    description= Column(VARCHAR)
-    author= Column(Text())
-    image= Column(VARCHAR)
-    price= Column(Integer())
-    added_at= Column(TIMESTAMP)
+    title= Column(Text(), nullable=False)
+    description= Column(VARCHAR, nullable=False)
+    author= Column(Text(), nullable=False)
+    image= Column(VARCHAR, nullable=False)
+    price= Column(Integer(), nullable=False)
+    added_at= Column(TIMESTAMP, nullable=False)

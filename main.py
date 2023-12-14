@@ -1,4 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
+from sqlalchemy.orm import Session
+from database import get_db
+from models import Books
 from schemas import BookSchema
 #initialize it
 app= FastAPI()
@@ -9,7 +12,8 @@ def index():
     return {"message": "Welcome to my first api"}
 #get all books
 @app.get('/books')
-def books():
+def books(db: Session = Depends(get_db)):
+    books = db.query(Books).all()
     return []
 
 #return a single book
