@@ -4,6 +4,7 @@ from pydantic import BaseModel
 
 class BookSchema(BaseModel):
     title: str
+    description: str
     author: str
     image: str
     genre: str
