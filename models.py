@@ -14,5 +14,6 @@ class Books(Base):
     description= Column(VARCHAR, nullable=False)
     author= Column(Text(), nullable=False)
     image= Column(VARCHAR, nullable=False)
+    genre= Column(Text(), nullable=False)
     price= Column(Integer(), nullable=False)
     added_at= Column(TIMESTAMP, nullable=False)

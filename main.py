@@ -14,7 +14,7 @@ def index():
 @app.get('/books')
 def books(db: Session = Depends(get_db)):
     books = db.query(Books).all()
-    return []
+    return [books]
 
 #return a single book
 @app.get('/books/{book_id}')
@@ -23,9 +23,16 @@ def books():
 
 #create/add a book
 @app.post('/books')
-def create(book: BookSchema):
-    print(book)
-    return {"message":"Book added succesfully"}
+def create(book: BookSchema, db: Session = Depends(get_db)):
+    new_book = Books(**book.model_dump())
+
+    #add book to the transaction
+    db.add(new_book)
+    #commit the transaction
+    db.commit()
+    #get evet from db again
+    db.refresh(new_book)
+    return {"message":"Book added succesfully", "book": new_book}
 
 #update a book
 @app.patch('/books/{book_id}')
