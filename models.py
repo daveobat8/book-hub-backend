@@ -17,3 +17,18 @@ class Books(Base):
     genre= Column(Text(), nullable=False)
     price= Column(Integer(), nullable=False)
     added_at= Column(TIMESTAMP, nullable=False)
+
+
+class User(Base):
+    __tablename__= 'users'
+
+    #define columns
+    id= Column(Integer(), primary_key=True)
+    name= Column(Text(), nullable=False)
+    phone= Column(VARCHAR, nullable=False)
+    email= Column(VARCHAR, nullable=False)
+
+class Catalogue(Base):
+    __tablename__= 'catalogues'
+
+    

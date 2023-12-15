@@ -10,3 +10,8 @@ class BookSchema(BaseModel):
     genre: str
     price: int
     added_at: str
+
+class UserSchema(BaseModel):
+    name: str
+    phone: str
+    email: str
