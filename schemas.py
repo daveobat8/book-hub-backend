@@ -15,3 +15,14 @@ class UserSchema(BaseModel):
     name: str
     phone: str
     email: str
+
+class CatalogueSchema(BaseModel):
+    
+    title: str
+    description: str
+    author: str
+    image: str
+    genre: str
+    price: int
+    added_at: str
+    
